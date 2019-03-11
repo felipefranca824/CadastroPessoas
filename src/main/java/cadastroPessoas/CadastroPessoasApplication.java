@@ -34,8 +34,6 @@ public class CadastroPessoasApplication extends Application {
 		stage.show();
 		
 		
-		
-		
 	}
 
 }

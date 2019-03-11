@@ -92,7 +92,7 @@
          <children>
             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
                <children>
-                  <Button mnemonicParsing="false" text="Atualizar" />
+                  <Button mnemonicParsing="false" onAction="#atualizar" text="Atualizar" />
                   <Button mnemonicParsing="false" onAction="#remover" text="Remover">
                      <HBox.margin>
                         <Insets left="55.0" />
