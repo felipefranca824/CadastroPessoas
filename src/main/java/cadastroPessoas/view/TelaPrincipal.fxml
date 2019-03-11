@@ -14,8 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane prefHeight="450.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171">
+<BorderPane prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cadastroPessoas.controller.TelaPrincipalController">
    <left>
       <GridPane prefHeight="450.0" prefWidth="197.0" BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -49,18 +48,10 @@
                         <Insets top="15.0" />
                      </VBox.margin>
                   </JFXTextField>
-                  <JFXTextField fx:id="fieldIdade" promptText="Idade">
-                     <VBox.margin>
-                        <Insets top="15.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </JFXTextField>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Button fx:id="botaoEnviar" mnemonicParsing="false" text="Enviar" />
-                        <Button fx:id="botaoCancelar" mnemonicParsing="false" text="Cancelar">
+                        <Button fx:id="botaoEnviar" mnemonicParsing="false" onAction="#salvar" text="Enviar" />
+                        <Button fx:id="botaoCancelar" mnemonicParsing="false" onAction="#limparCampos" text="Cancelar">
                            <HBox.margin>
                               <Insets left="70.0" />
                            </HBox.margin>
@@ -78,16 +69,41 @@
    <center>
       <TableView fx:id="tabelaPessoas" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn prefWidth="75.0" text="Nome" />
-          <TableColumn prefWidth="75.0" text="CPF" />
-            <TableColumn prefWidth="75.0" text="Idade" />
+          <TableColumn fx:id="colNome" prefWidth="75.0" text="Nome" />
+          <TableColumn fx:id="colCpf" prefWidth="75.0" text="CPF" />
         </columns>
          <padding>
-            <Insets bottom="50.0" left="20.0" right="20.0" top="60.0" />
+            <Insets bottom="100.0" left="20.0" right="20.0" top="60.0" />
          </padding>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
    </center>
+   <bottom>
+      <GridPane prefHeight="88.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.0" minWidth="10.0" prefWidth="198.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="403.0" minWidth="10.0" prefWidth="402.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
+               <children>
+                  <Button mnemonicParsing="false" text="Atualizar" />
+                  <Button mnemonicParsing="false" onAction="#remover" text="Remover">
+                     <HBox.margin>
+                        <Insets left="55.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets left="200.0" top="20.0" />
+               </padding>
+            </HBox>
+         </children>
+      </GridPane>
+   </bottom>
 </BorderPane>
